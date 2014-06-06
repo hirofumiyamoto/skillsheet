@@ -13,15 +13,15 @@ $(function() {
     tolerance: 200,
     toggleClass: false,
     doIn: function() {
-      $(this).addClass('onScreen')
+      $(this).addClass('onScreen');
     }
   });
-  
+
   $('section.career').onScreen({
     tolerance: 200,
     toggleClass: false,
     doIn: function() {
-      $(this).addClass('onScreen')
+      $(this).addClass('onScreen');
     }
   });
 
@@ -29,7 +29,7 @@ $(function() {
     tolerance: 200,
     toggleClass: false,
     doIn: function() {
-      $(this).addClass('onScreen')
+      $(this).addClass('onScreen');
     }
   });
 
@@ -37,19 +37,19 @@ $(function() {
     tolerance: 200,
     toggleClass: false,
     doIn: function() {
-      $(this).addClass('onScreen')
+      $(this).addClass('onScreen');
     }
   });
-  
+
   $('i.scrollHint').click(function(e){
     e.preventDefault();
     $('html,body').animate({
       scrollTop: $('section.career').offset().top
     },500);
   });
-  
+
   vAlignDesc();
-  
+
 });
 
 $(window).resize(function(){
@@ -74,7 +74,7 @@ $(window).scroll(function(){
       title: {
         text: 'tools',
         x: -20 //center
-      }, 
+      },
       tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage}%</b>',
         percentageDecimals: 1
@@ -157,3 +157,27 @@ $(window).scroll(function(){
     });
   });
 })(jQuery);
+
+$(function() {
+  var pageTop = $('html, body');
+  var secTopArr = Array();
+  var current = -1;
+  var bgColor = new Array('#fff', '#f3f3f3', '#e0e0e0');
+  $('section').each(function (i) {
+    secTopArr[i] = $(this).offset().top;
+  });
+  $(window).scroll(function () {
+    for (var i = secTopArr.length-1; i>=0; i--) {
+      if ($(window).scrollTop() > secTopArr[i] - 100) {
+        chengeBG(i);
+        break;
+      }
+    }
+  });
+  function chengeBG(secNum) {
+    if (secNum != current) {
+      current = secNum;
+      $('body').stop().animate({backgroundColor: bgColor[current]},200);
+    }
+  }
+});
