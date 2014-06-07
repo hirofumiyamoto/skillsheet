@@ -62,6 +62,7 @@ $(window).scroll(function(){
   $('section.desc i.scrollHint').css('opacity',1 - (pos/200));
 });
 
+// チャート ツール
 (function($){
   $(function () {
     $('#toolGraph').highcharts({
@@ -110,6 +111,7 @@ $(window).scroll(function(){
   });
 })(jQuery);
 
+// チャート スキル
 (function($){
   $(function () {
     $('#skillGraph').highcharts({
@@ -158,6 +160,7 @@ $(window).scroll(function(){
   });
 })(jQuery);
 
+// 背景色
 $(function() {
   var pageTop = $('html, body');
   var secTopArr = Array();
@@ -180,4 +183,16 @@ $(function() {
       $('body').stop().animate({backgroundColor: bgColor[current]},200);
     }
   }
+});
+
+// 閉じるボタン
+$(function() {
+  $('.fa-times').hover(
+    function() {
+      $(this).stop().animate({color: '#f56991'},200);
+    },
+    function () {
+      $(this).stop().animate({color: '#333'},700);
+    }
+  );
 });
