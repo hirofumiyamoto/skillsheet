@@ -196,3 +196,9 @@ $(function() {
     }
   );
 });
+
+// タイムラインのliにモーダルのトリガー付与
+$('ul.timeline li').each(function(i) {
+  $(this).addClass('md-trigger');
+  $(this).attr('data-modal','modal-' + (i+1));
+});

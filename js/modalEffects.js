@@ -33,7 +33,7 @@ var ModalEffects = (function() {
         ev.stopPropagation();
         removeModalHandler();
       });
-    } );
+    });
   }
   init();
 })();
