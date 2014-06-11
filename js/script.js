@@ -197,8 +197,19 @@ $(function() {
   );
 });
 
-// タイムラインのliにモーダルのトリガー付与
-$('ul.timeline li').each(function(i) {
-  $(this).addClass('md-trigger');
-  $(this).attr('data-modal','modal-' + (i+1));
-});
+// タイムラインのliにモーダルのトリガー用classと連番class付与
+// $('ul.timeline li').each(function(i) {
+//   $(this).addClass('md-trigger');
+//   $(this).attr('data-modal','modal-' + (i + 1));
+// });
+
+
+// タイムラインのliにモーダルのトリガー用classと連番classとモーダル画面に連番id付与
+var timeline = document.querySelectorAll('ul.timeline li');
+var modal = document.querySelectorAll('.md-modal');
+var idNo = 0;
+for(var i = 0; i < timeline.length; i++) {
+  timeline[i].className = 'md-trigger';
+  timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
+  modal[i].id = "modal-" + (++idNo).toString();
+}
