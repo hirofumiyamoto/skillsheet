@@ -58,7 +58,6 @@ $(window).resize(function(){
 
 $(window).scroll(function(){
   var pos = $(window).scrollTop();
-
   $('section.desc i.scrollHint').css('opacity',1 - (pos/200));
 });
 
