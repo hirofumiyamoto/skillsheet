@@ -58,10 +58,10 @@ $(window).resize(function(){
 
 $(window).scroll(function(){
   var pos = $(window).scrollTop();
-
   $('section.desc i.scrollHint').css('opacity',1 - (pos/200));
 });
 
+// チャート ツール
 (function($){
   $(function () {
     $('#toolGraph').highcharts({
@@ -110,6 +110,7 @@ $(window).scroll(function(){
   });
 })(jQuery);
 
+// チャート スキル
 (function($){
   $(function () {
     $('#skillGraph').highcharts({
@@ -158,6 +159,7 @@ $(window).scroll(function(){
   });
 })(jQuery);
 
+// 背景色
 $(function() {
   var pageTop = $('html, body');
   var secTopArr = Array();
@@ -181,3 +183,32 @@ $(function() {
     }
   }
 });
+
+// 閉じるボタン
+$(function() {
+  $('.fa-times').hover(
+    function() {
+      $(this).stop().animate({color: '#f56991'},200);
+    },
+    function () {
+      $(this).stop().animate({color: '#333'},700);
+    }
+  );
+});
+
+// タイムラインのliにモーダルのトリガー用classと連番class付与
+// $('ul.timeline li').each(function(i) {
+//   $(this).addClass('md-trigger');
+//   $(this).attr('data-modal','modal-' + (i + 1));
+// });
+
+
+// タイムラインのliにモーダルのトリガー用classと連番classとモーダル画面に連番id付与
+var timeline = document.querySelectorAll('ul.timeline li');
+var modal = document.querySelectorAll('.md-modal');
+var idNo = 0;
+for(var i = 0; i < timeline.length; i++) {
+  timeline[i].className = 'md-trigger';
+  timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
+  modal[i].id = "modal-" + (++idNo).toString();
+}
