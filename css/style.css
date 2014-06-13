@@ -327,11 +327,14 @@ modal Window
 }
 
 .md-content {
-  color: #fff;
   background: #f0f0f0;
   position: relative;
   border-radius: 3px;
   margin: 0 auto;
+  color: inherit;
+  overflow: auto;
+  padding: 2%;
+  height: 100%;
 }
 
 .md-content h4 {
@@ -386,10 +389,6 @@ modal Window
   -ms-transform: scale(1);
   transform: scale(1);
   opacity: 1;
-}
-
-.md-content {
-  color: inherit;
 }
 
 .fa-times {
