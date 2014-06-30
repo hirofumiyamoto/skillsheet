@@ -291,7 +291,7 @@ modal Window
   width: 50%;
   max-width: 630px;
   min-width: 320px;
-  height: auto;
+  height: 100%;
   z-index: 2000;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -301,6 +301,7 @@ modal Window
   -moz-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  padding: 5%;
 }
 
 .md-show {
@@ -327,11 +328,14 @@ modal Window
 }
 
 .md-content {
-  color: #fff;
   background: #f0f0f0;
   position: relative;
   border-radius: 3px;
   margin: 0 auto;
+  color: inherit;
+  overflow: auto;
+  padding: 2%;
+  height: 100%;
 }
 
 .md-content h4 {
@@ -388,10 +392,6 @@ modal Window
   opacity: 1;
 }
 
-.md-content {
-  color: inherit;
-}
-
 .fa-times {
   display: inline-block;
   position: absolute;
@@ -405,4 +405,10 @@ modal Window
   transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
+}
+
+@media ( max-width : 639px ) {
+  .fa-times {
+    padding-bottom: 8%;
+  }
 }
