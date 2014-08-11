@@ -65,7 +65,7 @@ $(window).scroll(function(){
 (function($){
   $(function () {
     $('#toolGraph').highcharts({
-      colors: ['#2467b1', '#573d7d', '#ffb756', '#f54d27', '#2c99c7', '#000', '#fba919'],
+      colors: ['#2467b1', '#573d7d', '#ffb756', '#f54d27', '#fba919', '#2c99c7', '#000'],
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -101,9 +101,9 @@ $(window).scroll(function(){
           ['Bootstrap', 20.0],
           ['Sublime Text', 20.0],
           ['Git', 15.0],
+          ['Grunt', 10.0],
           ['Wordpress', 10.0],
-          ['Yeoman', 10.0],
-          ['Grunt', 5.0]
+          ['Yeoman', 5.0]
         ]
       }]
     });

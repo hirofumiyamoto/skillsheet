@@ -54,6 +54,10 @@ h4 {
   padding: 2%;
 }
 
+a {
+  color: #690;
+}
+
 /* -----------------------------------------------------------------------------------------------
 
 desc Section
@@ -188,6 +192,15 @@ section.etc.onScreen h2 {
 .timeline > li > div div:hover {
   -webkit-transform: scale( 1.1 );
   -moz-transform: scale( 1.1 );
+}
+
+.fa-desktop,
+.fa-mobile {
+  margin-left: .6%;
+}
+
+.fa-mobile {
+  font-size: 1.3em;
 }
 
 /* for Desktop */
