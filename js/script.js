@@ -204,11 +204,17 @@ $(function() {
 
 
 // タイムラインのliにモーダルのトリガー用classと連番classとモーダル画面に連番id付与
-var timeline = document.querySelectorAll('ul.timeline li');
-var modal = document.querySelectorAll('.md-modal');
-var idNo = 0;
-for(var i = 0; i < timeline.length; i++) {
-  timeline[i].className = 'md-trigger';
-  timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
-  modal[i].id = "modal-" + (++idNo).toString();
-}
+(function() {
+  var addClass = {};
+  addClass = function() {
+    var timeline = document.querySelectorAll('ul.timeline li');
+    var modal = document.querySelectorAll('.md-modal');
+    var idNo = 0;
+    for(var i = 0; i < timeline.length; i++) {
+      timeline[i].className = 'md-trigger';
+      timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
+      modal[i].id = "modal-" + (++idNo).toString();
+    }
+  };
+  window.addClass = addClass;
+})();
