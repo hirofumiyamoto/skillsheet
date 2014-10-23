@@ -69,7 +69,7 @@ $(window).scroll(function(){
 (function($){
   $(function () {
     $('#toolGraph').highcharts({
-      colors: ['#ffb756', '#573d7d', '#2467b1', '#f54d27', '#fba919', '#2c99c7', '#000'],
+      colors: ['#ffb756', '#2467b1', '#573d7d', '#f54d27', '#fba919', '#2c99c7', '#000'],
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
