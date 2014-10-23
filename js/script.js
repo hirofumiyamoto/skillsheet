@@ -1,11 +1,15 @@
-function vAlignDesc() {
-  var descHeight = $('section.desc').height();
-  var wrapperHeight = $('section.desc div.wrapper').height();
+(function() {
+  var vAlignDesc = {};
+  vAlignDesc = function() {
+    var descHeight = $('section.desc').height();
+    var wrapperHeight = $('section.desc div.wrapper').height();
 
-  $('section.desc div.wrapper').css({
-    top: (descHeight/2) - (wrapperHeight/2)
-  });
-}
+    $('section.desc div.wrapper').css({
+      top: (descHeight/2) - (wrapperHeight/2)
+    });
+  }
+  window.vAlignDesc = vAlignDesc;
+})();
 
 $(function() {
 
@@ -48,12 +52,12 @@ $(function() {
     },500);
   });
 
-  vAlignDesc();
+  window.vAlignDesc();
 
 });
 
 $(window).resize(function(){
-  vAlignDesc();
+  window.vAlignDesc();
 });
 
 $(window).scroll(function(){
@@ -65,7 +69,7 @@ $(window).scroll(function(){
 (function($){
   $(function () {
     $('#toolGraph').highcharts({
-      colors: ['#2467b1', '#573d7d', '#ffb756', '#f54d27', '#fba919', '#2c99c7', '#000'],
+      colors: ['#ffb756', '#573d7d', '#2467b1', '#f54d27', '#fba919', '#2c99c7', '#000'],
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -97,9 +101,9 @@ $(window).scroll(function(){
         type: 'pie',
         name: 'Tools of work',
         data: [
+          ['Sublime Text', 20.0],
           ['Photoshop', 20.0],
           ['Bootstrap', 20.0],
-          ['Sublime Text', 20.0],
           ['Git', 15.0],
           ['Grunt', 10.0],
           ['Wordpress', 10.0],
@@ -196,19 +200,19 @@ $(function() {
   );
 });
 
-// タイムラインのliにモーダルのトリガー用classと連番class付与
-// $('ul.timeline li').each(function(i) {
-//   $(this).addClass('md-trigger');
-//   $(this).attr('data-modal','modal-' + (i + 1));
-// });
-
-
 // タイムラインのliにモーダルのトリガー用classと連番classとモーダル画面に連番id付与
-var timeline = document.querySelectorAll('ul.timeline li');
-var modal = document.querySelectorAll('.md-modal');
-var idNo = 0;
-for(var i = 0; i < timeline.length; i++) {
-  timeline[i].className = 'md-trigger';
-  timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
-  modal[i].id = "modal-" + (++idNo).toString();
-}
+(function() {
+  var serialNumber = {};
+  serialNumber = function() {
+    var timeline = $('ul.timeline li');
+    var modal = $('.md-modal');
+    var idNo = 0;
+    for(var i = 0; i < timeline.length; i++) {
+      timeline[i].className = 'md-trigger';
+      timeline[i].setAttribute('data-modal', 'modal-' + (i + 1));
+      modal[i].id = "modal-" + (++idNo).toString();
+    }    
+  };
+  window.serialNumber = serialNumber;
+})();
+window.serialNumber();
