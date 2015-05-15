@@ -2,7 +2,9 @@
   height: 100%;
 }*/
 
-html.home,body.home,section {
+html.home,
+body.home,
+section {
   width: 100%;
 }
 
