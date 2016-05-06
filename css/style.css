@@ -2,7 +2,9 @@
   height: 100%;
 }*/
 
-html.home,body.home,section {
+html.home,
+body.home,
+section {
   width: 100%;
 }
 
@@ -251,7 +253,7 @@ etc Section
   margin-bottom: 2em;
   padding: 0.5em;
   overflow: hidden;
-  width: 30%;
+  width: 36%;
   margin: 0 auto;
 }
 
