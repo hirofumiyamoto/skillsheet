@@ -65,9 +65,12 @@ $(window).scroll(function(){
   $('section.desc i.scrollHint').css('opacity',1 - (pos/200));
 });
 
-// チャート ツール
+
 (function($){
+
+  // チャート
   $(function () {
+    // ツール
     $('#toolGraph').highcharts({
       colors: ['#ffb756', '#2467b1', '#573d7d', '#f54d27', '#fba919', '#2c99c7', '#000'],
       chart: {
@@ -111,12 +114,8 @@ $(window).scroll(function(){
         ]
       }]
     });
-  });
-})(jQuery);
 
-// チャート スキル
-(function($){
-  $(function () {
+    // スキル
     $('#skillGraph').highcharts({
       colors: ['#e44d26', '#0473b7', '#b7e39b', '#c6538c', '#ffda3e', '#5967a4', '#2c99c7'],
         chart: {
