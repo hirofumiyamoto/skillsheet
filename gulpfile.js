@@ -1,9 +1,9 @@
 var gulp         = require('gulp'),
     plumber      = require('gulp-plumber'),
     less         = require('gulp-less'),
-    autoprefixer = require('gulp-autoprefixer'),
     concat       = require('gulp-concat'),
-    cssmin       = require('gulp-cssmin'),
+    pleeease     = require('gulp-pleeease'),
+    sourcemaps   = require('gulp-sourcemaps'),
     rename       = require('gulp-rename'),
     uglify       = require('gulp-uglify'),
     sync         = require('browser-sync');
@@ -25,16 +25,13 @@ gulp.task('reload', function() {
 gulp.task('less', function() {
   return gulp.src('./less/*.less')
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(less())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
     .pipe(concat('style.css'))
-    .pipe(cssmin())
-    .pipe(rename({
-      suffix: '.min'
+    .pipe(pleeease({
+      out: 'style.min.css',
     }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./css'));
 });
 
