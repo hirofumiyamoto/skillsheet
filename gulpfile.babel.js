@@ -1,14 +1,14 @@
-var gulp         = require('gulp'),
-    plumber      = require('gulp-plumber'),
-    less         = require('gulp-less'),
-    concat       = require('gulp-concat'),
-    pleeease     = require('gulp-pleeease'),
-    sourcemaps   = require('gulp-sourcemaps'),
-    rename       = require('gulp-rename'),
-    uglify       = require('gulp-uglify'),
-    sync         = require('browser-sync');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import less from 'gulp-less';
+import concat from 'gulp-concat';
+import pleeease from 'gulp-pleeease';
+import sourcemaps from 'gulp-sourcemaps';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
+import sync from 'browser-sync';
 
-gulp.task('server', function() {
+gulp.task('server', () => {
   return sync({
     server: {
       baseDir: './'
@@ -18,11 +18,11 @@ gulp.task('server', function() {
   });
 });
 
-gulp.task('reload', function() {
+gulp.task('reload', () => {
   return sync.reload();
 });
 
-gulp.task('less', function() {
+gulp.task('less', () => {
   return gulp.src('./less/*.less')
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -35,7 +35,7 @@ gulp.task('less', function() {
     .pipe(gulp.dest('./css'));
 });
 
-gulp.task('jsconcat', function() {
+gulp.task('jsconcat', () => {
   var files = [
     './node_modules/jquery/dist/jquery.js',
     './js/jquery.onscreen.min.js',
@@ -49,7 +49,7 @@ gulp.task('jsconcat', function() {
     .pipe(gulp.dest('./build'));
 });
 
-gulp.task('jsuglify', function() {
+gulp.task('jsuglify', () => {
   return gulp.src('./build/script.js')
     .pipe(plumber())
     .pipe(uglify())
@@ -59,7 +59,7 @@ gulp.task('jsuglify', function() {
     .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('watch', ['build', 'server'], function() {
+gulp.task('w', ['build', 'server'], () => {
   gulp.watch('./less/*.less', ['less']);
   gulp.watch('./*.html', ['reload']);
   gulp.watch('./css/*.css', ['reload']);
