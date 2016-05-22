@@ -7,6 +7,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import sync from 'browser-sync';
+import babel from 'gulp-babel';
 
 gulp.task('server', () => {
   return sync({
