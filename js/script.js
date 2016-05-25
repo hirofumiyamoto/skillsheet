@@ -172,31 +172,6 @@ $(window).scroll(function(){
   });
 })(jQuery);
 
-// 背景色
-// $(function() {
-//   var pageTop = $('html, body');
-//   var secTopArr = Array();
-//   var current = -1;
-//   var bgColor = new Array('#fff', '#f3f3f3', '#e0e0e0');
-//   $('section').each(function (i) {
-//     secTopArr[i] = $(this).offset().top;
-//   });
-//   $(window).scroll(function () {
-//     for (var i = secTopArr.length-1; i>=0; i--) {
-//       if ($(window).scrollTop() > secTopArr[i] - 100) {
-//         chengeBG(i);
-//         break;
-//       }
-//     }
-//   });
-//   function chengeBG(secNum) {
-//     if (secNum != current) {
-//       current = secNum;
-//       $('body').stop().animate({backgroundColor: bgColor[current]},200);
-//     }
-//   }
-// });
-
 // タイムラインのliにモーダルのトリガー用classと連番classとモーダル画面に連番id付与
 (function() {
   var serialNumber = {};
