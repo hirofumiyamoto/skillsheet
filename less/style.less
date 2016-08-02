@@ -64,47 +64,39 @@ desc Section
 
 ----------------------------------------------------------------------------------------------- */
 
-section.desc {
+.desc {
   background: #690;
   color: #fff;
   overflow: hidden;
   text-align: center;
   height: 100%;
   position: relative;
-}
-
-section.desc .wrapper {
-  position: absolute;
-  top: 45%;
-  width: 100%;
-}
-
-section.desc h1 {
-  text-align: center;
-  font-size: 120px;
-  font-weight: 100;
-  margin: -50px 0 20px;
-  color: #fff;
-  transform: scale(2);
-  opacity: 0;
-  transition: all 500ms ease;
-}
-
-@media ( max-width : 639px ) {
-  section.desc h1 {
-    font-size: 32px;
+  & .wrapper {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+  }
+  & h1 {
+    text-align: center;
+    font-size: 120px;
+    font-weight: 100;
+    margin: -50px 0 20px;
+    color: #fff;
+    transform: scale(2);
+    opacity: 0;
+    transition: all 500ms ease;
+  }
+  & .scrollHint {
+    position: absolute;
+    bottom: 10px;
+    font-size: 50px;
+    width: 100%;
+    left: 0;
+    animation: scrollHint 1s infinite  normal ease-out;
+    cursor: pointer;
   }
 }
 
-section.desc i.scrollHint {
-  position: absolute;
-  bottom: 10px;
-  font-size: 50px;
-  width: 100%;
-  left: 0;
-  animation: scrollHint 1s infinite  normal ease-out;
-  cursor: pointer;
-}
 @keyframes scrollHint {
   0% {
     bottom: 10px;
@@ -117,22 +109,29 @@ section.desc i.scrollHint {
   }
 }
 
+
+@media ( max-width : 639px ) {
+  .desc h1 {
+    font-size: 32px;
+  }
+}
+
 /* -----------------------------------------------------------------------------------------------
 
 career Section
 
 ----------------------------------------------------------------------------------------------- */
 
-section.career,
-section.skills,
-section.etc,
-section.footer {
+.career,
+.skills,
+.etc,
+.footer {
   padding: 50px 0;
 }
 
-section.career h2,
-section.skills h2,
-section.etc h2 {
+.career h2,
+.skills h2,
+.etc h2 {
   text-align: center;
   margin-bottom: 50px;
   color: #f56991;
@@ -141,10 +140,10 @@ section.etc h2 {
   transition: all 500ms ease;
 }
 
-section.desc.onScreen h1,
-section.career.onScreen h2,
-section.skills.onScreen h2,
-section.etc.onScreen h2 {
+.desc.onScreen h1,
+.career.onScreen h2,
+.skills.onScreen h2,
+.etc.onScreen h2 {
   transform: scale(1);
   opacity: 1;
 }
@@ -152,20 +151,18 @@ section.etc.onScreen h2 {
 .timeline {
   list-style: none;
   background: #fff;
-}
-.timeline > li {
-  margin-bottom: 60px;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
-  text-align: center;
-}
-
-.timeline > li > div div {
-  transition: all 0.5s ease;
-}
-
-.timeline > li > div div:hover {
-  transform: scale( 1.1 );
+  & > li {
+    margin-bottom: 60px;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+    text-align: center;
+  }
+  &-content div {
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .fa-desktop,
@@ -212,28 +209,53 @@ section.etc.onScreen h2 {
 
 /* -----------------------------------------------------------------------------------------------
 
+skills & favs Section
+
+----------------------------------------------------------------------------------------------- */
+
+.graphs {
+  min-width: 310px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------------------------
+
 etc Section
 
 ----------------------------------------------------------------------------------------------- */
 
 .content {
   text-align: center;
+  & .person {
+    box-sizing: border-box;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    overflow: hidden;
+    width: 36%;
+    margin: 0 auto;
+    & img {
+      float: left;
+      padding: 2px;
+      box-shadow: 0 0 0 1px #b0b0b0;
+    }
+    & .txt {
+      float: left;
+      margin-left: 1em;
+      width: 74%;
+      & a {
+        font-size: 0.8em;
+        line-height: 3.4;
+      }
+    }
+  }
 }
 
-.person {
-  box-sizing: border-box;
-  margin-bottom: 2em;
-  padding: 0.5em;
-  overflow: hidden;
-  width: 36%;
-  margin: 0 auto;
-}
+/* -----------------------------------------------------------------------------------------------
 
-img {
-   float: left;
-   padding: 2px;
-   box-shadow: 0 0 0 1px #b0b0b0;
-}
+footer Section
+
+----------------------------------------------------------------------------------------------- */
 
 .footer {
   text-align: center;
@@ -314,28 +336,27 @@ modal Window
   padding: 2%;
   height: 100%;
   margin-top: 10%;
-}
-
-.md-content h4 {
-  margin-bottom: 4%;
-}
-
-.md-content > div {
-  padding: 15px 40px 30px;
-  margin: 0;
-  font-weight: 300;
-  font-size: 1.15em;
-}
-
-.md-content > div p {
-  margin: 0;
-  padding: 10px 0;
-}
-
-.md-content button {
-  display: block;
-  margin: 0 auto;
-  font-size: 0.8em;
+  & h4 {
+    margin-bottom: 4%;
+  }
+  & p:last-of-type {
+    margin-bottom: 30px;
+  }
+  & > div {
+    padding: 15px 40px 30px;
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.15em;
+    & p {
+      margin: 0;
+      padding: 10px 0;
+    }
+  }
+  & button {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8em;
+  }
 }
 
 .md-trigger,
@@ -367,10 +388,9 @@ modal Window
   position: absolute;
   left: 50%;
   transition: transform 0.2s ease-out;
-}
-
-.fa-times:hover {
-  transform: rotate(360deg);
+  &:hover {
+    transform: rotate(360deg);
+  }
 }
 
 @media ( max-width : 639px ) {
