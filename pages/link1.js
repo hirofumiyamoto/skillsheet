@@ -9,40 +9,19 @@ const Container = styled.div`
   padding: 0 1rem;
 `;
 
-const Heading = styled.h1`
-  font-family: serif;
-`;
-
-const Link = ({ className, children }) => (
-  <a
-    className={className}
-    href="/link1">
-    {children}
-  </a>
-)
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const defaultHeading = {
-  text: 'Skill Sheet',
+  text: 'link1',
 };
 
 export default () => (
   <Container>
     <Head>
-      <title>hrfmmymt</title>
+      <title>link1</title>
     </Head>
 
     <Amp.State id="heading">{defaultHeading}</Amp.State>
     <Amp.Bind text="heading.text">
-      <Heading>{defaultHeading.text}</Heading>
+      <h1>{defaultHeading.text}</h1>
     </Amp.Bind>
-
-    <StyledLink>link1</StyledLink>
   </Container>
 );
